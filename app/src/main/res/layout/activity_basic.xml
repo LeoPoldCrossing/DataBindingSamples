@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+        <import type="com.example.databindingsamples.utils.MyStringUtils" alias="StringUtil"/>
+        <variable
+            name="user"
+            type="com.example.databindingsamples.model.User" />
+
+        <variable
+            name="handler"
+            type="com.example.databindingsamples.samples.basic.BasicActivity.EventHandler" />
+    </data>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin">
+
+        <TableRow android:onClick="@{handler.onDisplayNameClick}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="Display Name: " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{user.displayName ?? "displayName is null"}' />
+        </TableRow>
+
+        <TableRow android:onClick="@{()-> handler.onFirstNameClick(user)}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="First Name: " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{StringUtil.capitalize(user.firstName)}" />
+        </TableRow>
+
+        <TableRow android:onClick="@{(view)-> handler.onLastNameClick(view,user)}">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="Last Name: " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.lastName}" />
+        </TableRow>
+
+        <TableRow android:onClick="@{handler.onAgeClick}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="Age: " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(user.age)}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未成年禁入"
+                android:textColor="@android:color/holo_red_light"
+                android:textStyle="italic"
+                android:visibility="@{!user.adult ? View.VISIBLE:View.GONE}" />
+        </TableRow>
+    </TableLayout>
+</layout>

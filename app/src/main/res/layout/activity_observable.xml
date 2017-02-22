@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.databinding.ObservableList"/>
+        <import type="android.databinding.ObservableMap"/>
+        <variable
+            name="user"
+            type="com.example.databindingsamples.model.ObservableUser" />
+
+        <variable
+            name="fieldUser"
+            type="com.example.databindingsamples.model.ObservableFieldUser"/>
+        <variable
+            name="list"
+            type="ObservableList&lt;Object&gt;" />
+        <variable
+            name="map"
+            type="ObservableMap&lt;String,Object&gt;"/>
+        <variable
+            name="handler"
+            type="com.example.databindingsamples.samples.observable.ObservableActivity.EventHandler" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Observable Object"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/formatString(user.name,user.idNumber,user.age)}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Observable Field"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/formatString(fieldUser.name,fieldUser.NO,fieldUser.age)}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Observable List"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/listFormatString(list[0])}" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Observable Map"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{@string/mapFormatString(map["system"],map[`brand`],map["version"])}' />
+
+        <Button
+            style="@style/button_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ChangeData"
+            android:onClick="@{handler.changeData}" />
+
+    </LinearLayout>
+
+</layout>

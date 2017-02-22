@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">DataBindingSamples</string>
+    <string name="basic_button_text">Basic</string>
+    <string name="viewid_button_text">ID View</string>
+    <string name="custombinding_button_text">BindingCustom</string>
+    <string name="include_button_text">Include</string>
+    <string name="resource_button_text">Resource</string>
+    <string name="container_button_text">Collections</string>
+    <string name="observable_button_text">Observable</string>
+    <string name="viewstub_button_text">ViewStub</string>
+    <string name="dynamic_button_text">Dynamic</string>
+    <string name="auto_attribute_button_text">AutoAttributeSetter</string>
+    <string name="converters_button_text">Converters</string>
+
+    <string name="nameFormat">Full Name :%1$s:%2$s</string>
+    <string name="formatString">Name : %1$s  ID.NO :%2$d  Age: %3$d</string>
+    <string name="listFormatString">System : %1$s </string>
+    <string name="mapFormatString">System : %1$s ; Brand : %2$s ; Version : %3$s </string>
+
+    <plurals name="banana">
+        <item quantity="zero">zero bananas</item>
+        <item quantity="one">one bananas</item>
+        <item quantity="two">two bananas</item>
+        <item quantity="few">few bananas</item>
+        <item quantity="many">many bananas</item>
+        <item quantity="other">other bananas</item>
+    </plurals>
+
+    <plurals name="orange">
+        <item quantity="one">Have an orange</item>
+        <item quantity="other">Have %d orange</item>
+    </plurals>
+</resources>
